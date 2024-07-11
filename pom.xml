@@ -159,7 +159,7 @@
                 <image.publish.skip>false</image.publish.skip>
                 <dependencies.copy.skip>false</dependencies.copy.skip>
                 <mysql.jdbc.version>5.1.42</mysql.jdbc.version>
-                <mysql8.jdbc.version>8.0.27</mysql8.jdbc.version>
+                <mysql8.jdbc.version>8.0.31</mysql8.jdbc.version>
             </properties>
         </profile>
         <!-- profile: release-image-based-on-java8 -->

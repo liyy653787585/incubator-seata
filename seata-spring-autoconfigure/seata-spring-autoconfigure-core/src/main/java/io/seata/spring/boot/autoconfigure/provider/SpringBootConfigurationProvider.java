@@ -223,6 +223,10 @@ public class SpringBootConfigurationProvider implements ExtConfigurationProvider
     @Nullable
     private Object getConfigFromEnvironment(String dataId, Class<?> dataType) {
         ConfigurableEnvironment environment = (ConfigurableEnvironment)ObjectHolder.INSTANCE.getObject(OBJECT_KEY_SPRING_CONFIGURABLE_ENVIRONMENT);
+        //fix空指针问题
+        if (environment == null) {
+            return null;
+        }
         Object value = environment.getProperty(dataId, dataType);
         if (value == null) {
             value = environment.getProperty(io.seata.common.util.StringUtils.hump2Line(dataId), dataType);

@@ -37,13 +37,19 @@ console:
 seata:
   config:
     # support: nacos, consul, apollo, zk, etcd3
-    type: file
+    type: zk
+    zk:
+      server-addr: 192.168.54.116:2181
+      session-timeout: 6000
+      connect-timeout: 4000
   registry:
     # support: nacos, eureka, redis, zk, consul, etcd3, sofa
     type: file
   store:
     # support: file 、 db 、 redis 、 raft
-    mode: file
+    mode: raft
+    file:
+      dir: sessionStore # 该路径为raftlog及事务相关日志的存储位置，默认是相对路径，最好设置一个固定的位置
   #  server:
   #    service-port: 8091 #If not configured, the default is '${server.port} + 1000'
   security:

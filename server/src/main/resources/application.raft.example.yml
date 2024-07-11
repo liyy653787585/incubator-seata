@@ -32,6 +32,7 @@ logging:
 
 seata:
   config:
+    # 该配置可以选择不同的配置中心
     # support: nacos 、 consul 、 apollo 、 zk  、 etcd3
     type: file
     nacos:
@@ -67,6 +68,7 @@ seata:
       server-addr: http://localhost:2379
       key: seata.properties
   registry:
+    # raft模式下不允许使用非file的其他注册中心
     # support: nacos 、 eureka 、 redis 、 zk  、 consul 、 etcd3 、 sofa
     type: file
     preferred-networks: 30.240.*
